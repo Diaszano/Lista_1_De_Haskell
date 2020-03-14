@@ -15,7 +15,12 @@ todosDiferentes :: Int -> Int -> Int -> Bool
 todosDiferentes a b c = 0 == quantosIguais a b c
 
 --4) Defina um conjunto de testes para a função todosDiferentes
-
+-- todosDiferentes 0 0 0 
+-- todosDiferentes 0 0 1
+-- todosDiferentes 0 1 0
+-- todosDiferentes 0 1 1
+-- todosDiferentes 1 0 0
+-- todosDiferentes 1 0 1
 
 --5) O que está errado com a seguinte definição de todosDiferentes: todosDiferentes n m p = ( ( n/=m ) && ( m/=p ) )
 -- O conjunto de testes que você definiu na questão anterior funciona com esta definição?
@@ -39,3 +44,18 @@ elevadoDois n =  n * n
 --9) Defina a função elevadoQuatro :: Int -> Int que recebe um argumento n e devolve como resposta n⁴. Use elevadoDois para definir elevadoQuatro
 elevadoQuatro :: Int -> Int
 elevadoQuatro n = elevadoDois n * elevadoDois n
+
+--10) Supondo que exista uma função vendas: vendas :: Int -> Int que devolve a venda semanal de uma loja (ex: vendas 0 devolve as vendas
+-- na semana 0, vendas 1 devolve as vendas na semana 1, etc. Implemente uma função chamada vendaTotal, que recebe um argumento n e calcula
+-- todas as vendas da semana 0 até a semana n. Observe que essa função deve ser recursiva. Exemplo de calculo: As vendas da semana 0 até a semana 2,
+-- podem ser calculados usando a seguinte formula: vendas 0 + vendas 1 + vendas 2
+
+vendas :: Int -> Int
+vendas 0 = 32
+vendas 1 = 41
+vendas 2 = 20
+vendas _ = 19
+
+vendasTotal :: Int -> Int
+vendasTotal 0 = vendas 0
+vendasTotal n = vendas n + vendasTotal(n-1)
